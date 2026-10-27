@@ -1,0 +1,37 @@
+[project]
+name = "cdbench"
+version = "0.1.0"
+description = "Regex, small fine-tuned model or LLM: measured on a real correction-detection task"
+readme = "README.md"
+authors = [
+    { name = "Nathan Le Ray", email = "nathan@sxnlabs.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "accelerate>=1.15.0",
+    "matplotlib>=3.11.2",
+    "numpy>=2.5.4",
+    "scikit-learn>=1.9.1",
+    "torch>=2.14.1",
+    "transformers>=5.21.0",
+]
+
+[project.scripts]
+cdbench = "cdbench.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["hermes: needs a local Hermes checkout (HERMES_ROOT)", "slow: downloads a tiny model"]
+
+[tool.ruff]
+line-length = 100

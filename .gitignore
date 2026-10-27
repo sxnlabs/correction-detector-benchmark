@@ -1,0 +1,10 @@
+# Private data never enters this repo
+data/
+private/
+*.jsonl
+.cache/
+__pycache__/
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
